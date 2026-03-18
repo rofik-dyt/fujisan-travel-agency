@@ -73,12 +73,18 @@ WSGI_APPLICATION = 'travel_site.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/4.2/ref/settings/#databases
 
+tmp_db_url = os.environ.get('DATABASE_URL')
+if tmp_db_url and tmp_db_url.startswith('postgresql://'):
+    os.environ['DATABASE_URL'] = tmp_db_url.replace('postgresql://', 'postgres://', 1)
+
 DATABASES = {
     'default': dj_database_url.config(
         default=f"sqlite:///{BASE_DIR / 'db.sqlite3'}",
-        conn_max_age=600
+        conn_max_age=600,
+        ssl_require=True if os.environ.get('DATABASE_URL') else False
     )
 }
+
 
 
 # Password validation
