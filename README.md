@@ -1,67 +1,85 @@
-# Fujisan Travel - Japan Journey Explorer
+# 🗻 Fujisan Travel Agency
 
-A premium, modern travel platform designed to showcase the soul of Japan. This application features a stunning, interactive user interface built with Django and Tailwind CSS, offering curated travel packages, insightful travel stories, and a seamless user experience.
+[![Django](https://img.shields.io/badge/Framework-Django%204.2-092e20?logo=django)](https://www.djangoproject.com/)
+[![Tailwind CSS](https://img.shields.io/badge/Styling-Tailwind%20CSS-38b2ac?logo=tailwind-css)](https://tailwindcss.com/)
+[![PostgreSQL](https://img.shields.io/badge/Database-PostgreSQL-336791?logo=postgresql)](https://www.postgresql.org/)
+[![Vercel](https://img.shields.io/badge/Deployment-Vercel-black?logo=vercel)](https://vercel.com/)
+[![Cloudinary](https://img.shields.io/badge/Storage-Cloudinary-3448C5?logo=cloudinary)](https://cloudinary.com/)
 
-![Hero Banner Preview](static/img/hero_nature.jpg) <!-- Note: Replace with actual screenshot path if available -->
+A premium, modern travel platform designed to showcase the soul of Japan. This application features a stunning, interactive user interface built with **Django** and **Tailwind CSS**, offering curated travel packages, insightful travel stories, and a seamless cloud-synced experience.
 
-## 🌟 Key Features
+---
 
-- **Dynamic Blog Engine**: Rich travel stories with Markdown support and automatic snippets.
-- **Curated Travel Packages**: Beautifully designed cards showcasing featured Japanese experiences with real-time pricing and details.
-- **Premium Aesthetics**: Built with a "wow-factor" design system featuring:
-  - **Glassmorphism** stats and navigation.
-  - **Dark Mode** support across all pages.
-  - **Scroll-Reveal Animations**: Smooth entrance effects for enhanced engagement.
-- **Interactive About Us Section**: Engaging storytelling with high-quality landscape imagery.
-- **Responsive Navigation**: A modern, fixed navigation bar that adapts to scroll state and mobile devices.
+## ✨ Premium Features
 
-## 🛠️ Technology Stack
+-   **🏯 Dynamic Japan Explorer**: Curated travel packages with real-time detail updates.
+-   **✍️ Professional Blog Engine**: Full Markdown support for immersive travel storytelling.
+-   **⛅ Cloud-Native Media**: Automated image hosting via **Cloudinary** for persistent, fast delivery.
+-   **💎 State-of-the-Art UI**: Includes Glassmorphism, Dark Mode support, and Scroll-Reveal animations.
+-   **🐘 Multi-Cloud DB Ready**: Seamlessly switches between **Render** and **Supabase** PostgreSQL.
 
-- **Backend**: Python / Django 4.2+
-- **Frontend**: Tailwind CSS, Alpine.js
-- **Icons & Fonts**: Google Material Symbols, Plus Jakarta Sans
-- **Database**: SQLite (Development) / PostgreSQL via Supabase (Production)
-- **Deployment**: Vercel
+## 🛠️ Pro Tech Stack
 
-## 🚀 Quick Start
+-   **Backend**: Python 3.12 / Django 4.2
+-   **Frontend**: Tailwind CSS 3.x, Alpine.js
+-   **Database**: PostgreSQL (Production) / SQLite (Local)
+-   **Storage**: Cloudinary (Cloud Media Storage)
+-   **Server**: Gunicorn / WhiteNoise (Static serving)
 
-### 1. Clone & Setup Environment
+---
+
+## 🚀 Quick Start Guide
+
+### 1. Initialization
 ```bash
-git clone <your-repository-url>
-cd webappAi
+git clone https://github.com/rofik-dyt/fujisan-travel-agency.git
+cd fujisan-travel-agency
 python -m venv .venv
-source .venv/bin/activate  # On Windows: .venv\Scripts\activate
+.\.venv\Scripts\activate
 pip install -r requirements.txt
 ```
 
-### 2. Configuration
-Create a `.env` file based on `.env.example`:
-```bash
-cp .env.example .env
+### 2. Environment Setup
+Create a `.env.local` file in the root directory:
+```text
+SECRET_KEY=your-secure-key
+DEBUG=True
+DATABASE_URL=postgresql://user:pass@host:port/db
+CLOUDINARY_CLOUD_NAME=your-cloud-name
+CLOUDINARY_API_KEY=your-api-key
+CLOUDINARY_API_SECRET=your-api-secret
 ```
-Fill in your `SECRET_KEY` and database credentials.
 
-### 3. Run Locally
+### 3. Launch
 ```bash
 python manage.py migrate
 python manage.py runserver
 ```
-Visit `http://127.0.0.1:8000` in your browser.
+Navigate to [http://127.0.0.1:8000/](http://127.0.0.1:8000/)
 
-## 📦 Deployment
+---
 
-This project is pre-configured for deployment on **Vercel** with **Supabase**.
+## 📦 Cloud Deployment
 
-1.  **Database**: Create a project on [Supabase](https://supabase.com/) and copy the connection string.
-2.  **Vercel**: Link your GitHub repository and add the following environment variables:
-    - `DATABASE_URL`: Your Supabase URI.
-    - `SECRET_KEY`: A secure random string.
-    - `DEBUG`: `False`
-    - `ALLOWED_HOSTS`: Your deployment domain.
+### Database (Render/Supabase)
+1.  Provision a PostgreSQL instance.
+2.  Obtain your **Connection URI**. 
+3.  Note: Special characters (like `@` or `#`) in passwords must be **URL-encoded**.
+
+### Media Storage (Cloudinary)
+1.  Create a free account at [Cloudinary](https://cloudinary.com/).
+2.  Provide `CLOUD_NAME`, `API_KEY`, and `API_SECRET` to the environment.
+3.  Images will persist across redeploys automatically!
+
+### Web Hosting (Vercel)
+1.  Connect your GitHub repository.
+2.  Vercel will detect the `vercel.json` and `wsgi.py` automatically.
+3.  Add your environment variables in the Vercel Dashboard.
+
+---
 
 ## 📄 License
-
 This project is licensed under the MIT License.
 
 ---
-*Generated by Antigravity - Expert Agentic Coding.*
+*Crafted with precision by Antigravity - Advanced Agentic Coding.*
