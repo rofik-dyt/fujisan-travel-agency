@@ -1,0 +1,86 @@
+{% extends 'base.html' %}
+{% load markdown_extras %}
+
+{% block title %}{{ blog.title }} - Fujisan Travel{% endblock %}
+
+{% block content %}
+<div class="bg-background-light dark:bg-background-dark min-h-screen">
+    <!-- Blog Detail Header -->
+    <div class="bg-slate-900 text-white py-24 relative overflow-hidden">
+        <div class="absolute inset-0">
+            {% if blog.featured_image %}
+            <img src="{{ blog.featured_image.url }}" class="w-full h-full object-cover opacity-40 blur-sm scale-105"
+                alt="{{ blog.title }}">
+            {% else %}
+            <div class="w-full h-full bg-slate-800 opacity-80"></div>
+            {% endif %}
+            <div class="absolute inset-0 bg-gradient-to-t from-background-dark via-slate-900/80 to-transparent"></div>
+        </div>
+
+        <div class="max-w-[800px] mx-auto px-6 relative z-10 text-center mt-10 reveal">
+            <div
+                class="inline-block bg-primary text-white text-xs font-bold px-3 py-1 rounded-full shadow-sm mb-6 uppercase tracking-widest">
+                Article
+            </div>
+            <h1 class="text-4xl md:text-5xl lg:text-6xl font-extrabold mb-6 leading-tight">{{ blog.title }}</h1>
+
+            <div class="flex items-center justify-center gap-6 text-sm text-slate-300 font-medium">
+                <span class="flex items-center gap-2">
+                    <span class="material-symbols-outlined text-[18px] text-primary">calendar_today</span>
+                    {{ blog.created_at|date:"M d, Y" }}
+                </span>
+                <span class="flex items-center gap-2">
+                    <span class="material-symbols-outlined text-[18px] text-primary">person</span>
+                    By {{ blog.author }}
+                </span>
+            </div>
+        </div>
+    </div>
+
+    <!-- Main Content -->
+    <main class="max-w-[800px] mx-auto w-full px-6 py-16 -mt-16 relative z-20">
+        <article
+            class="bg-white dark:bg-slate-900 rounded-3xl p-8 md:p-12 shadow-xl border border-slate-100 dark:border-slate-800 reveal"
+            style="transition-delay: 100ms">
+            <!-- Featured Image -->
+            {% if blog.featured_image %}
+            <div class="w-full h-auto rounded-xl overflow-hidden mb-10 shadow-md">
+                <img src="{{ blog.featured_image.url }}" alt="{{ blog.title }}" class="w-full object-cover">
+            </div>
+            {% endif %}
+
+            <!-- Article Body -->
+            <div class="prose prose-lg dark:prose-invert prose-slate max-w-none 
+                        prose-headings:font-bold prose-headings:text-slate-900 dark:prose-headings:text-white 
+                        prose-a:text-primary hover:prose-a:text-primary-dark prose-a:transition-colors
+                        prose-img:rounded-xl prose-img:shadow-md
+                        leading-relaxed text-slate-700 dark:text-slate-300">
+                {{ blog.content|markdown }}
+            </div>
+
+            <!-- Share and Tags -->
+            <div
+                class="mt-16 pt-8 border-t border-slate-100 dark:border-slate-800 flex flex-col sm:flex-row items-center justify-between gap-6">
+                <div class="flex items-center gap-3">
+                    <span class="font-bold text-sm text-slate-900 dark:text-white">Share this story:</span>
+                    <div class="flex gap-2">
+                        <button
+                            class="size-10 rounded-full border border-slate-200 dark:border-slate-700 flex items-center justify-center text-slate-500 hover:text-primary hover:border-primary transition-all">
+                            <span class="material-symbols-outlined text-sm">share</span>
+                        </button>
+                        <button
+                            class="size-10 rounded-full border border-slate-200 dark:border-slate-700 flex items-center justify-center text-slate-500 hover:text-primary hover:border-primary transition-all">
+                            <span class="material-symbols-outlined text-sm">link</span>
+                        </button>
+                    </div>
+                </div>
+
+                <a href="{% url 'blog' %}"
+                    class="inline-flex items-center gap-2 text-sm font-bold text-slate-600 dark:text-slate-400 hover:text-primary dark:hover:text-primary transition-colors bg-slate-50 dark:bg-slate-800 px-6 py-3 rounded-full">
+                    <span class="material-symbols-outlined text-sm">arrow_back</span> Back to Stories
+                </a>
+            </div>
+        </article>
+    </main>
+</div>
+{% endblock %}

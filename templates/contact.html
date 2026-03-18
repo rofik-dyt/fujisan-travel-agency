@@ -1,0 +1,251 @@
+{% extends 'base.html' %}
+
+{% block title %}Contact Us{% endblock %}
+
+{% block content %}
+<div class="bg-slate-50 dark:bg-slate-900 min-h-screen py-16">
+    <main class="max-w-[1200px] mx-auto w-full px-6">
+        <!-- Header Section -->
+        <div class="mt-20 text-center mb-16">
+            <h1 class="text-4xl md:text-5xl font-extrabold text-slate-900 dark:text-white tracking-tight mb-4">Get in
+                Touch</h1>
+            <p class="text-slate-600 dark:text-slate-400 max-w-2xl mx-auto text-lg leading-relaxed">
+                Have questions about your upcoming trip to Japan? Our travel experts are here to help you plan the
+                perfect journey.
+            </p>
+        </div>
+
+        <div class="grid lg:grid-cols-3 gap-10">
+            <!-- LEFT: Contact Form Card -->
+            <div
+                class="lg:col-span-2 bg-white dark:bg-slate-800 rounded-2xl shadow-sm border border-slate-200 dark:border-slate-700 p-8 md:p-10">
+                <h2 class="text-2xl font-bold text-slate-900 dark:text-white mb-8">Send us a Message</h2>
+
+                <form action="{% url 'contact' %}" method="POST" class="space-y-6">
+                    {% csrf_token %}
+
+                    <div class="grid md:grid-cols-2 gap-6">
+                        <!-- Your Name -->
+                        <div class="space-y-2">
+                            <label for="name" class="block text-sm font-bold text-slate-700 dark:text-slate-300">Your
+                                Name *</label>
+                            <input type="text" id="name" name="name" required placeholder="John Doe"
+                                class="w-full px-4 py-3 rounded-xl border border-slate-200 dark:border-slate-600 bg-slate-50 dark:bg-slate-900 text-slate-900 dark:text-white focus:ring-2 focus:ring-primary focus:border-primary transition-colors">
+                        </div>
+
+                        <!-- Email Address -->
+                        <div class="space-y-2">
+                            <label for="email" class="block text-sm font-bold text-slate-700 dark:text-slate-300">Email
+                                Address *</label>
+                            <input type="email" id="email" name="email" required placeholder="john@example.com"
+                                class="w-full px-4 py-3 rounded-xl border border-slate-200 dark:border-slate-600 bg-slate-50 dark:bg-slate-900 text-slate-900 dark:text-white focus:ring-2 focus:ring-primary focus:border-primary transition-colors">
+                        </div>
+                    </div>
+
+                    <!-- Subject -->
+                    <div class="space-y-2">
+                        <label for="subject" class="block text-sm font-bold text-slate-700 dark:text-slate-300">Subject
+                            *</label>
+                        <input type="text" id="subject" name="subject" required
+                            placeholder="Inquiry about Kyoto Package"
+                            class="w-full px-4 py-3 rounded-xl border border-slate-200 dark:border-slate-600 bg-slate-50 dark:bg-slate-900 text-slate-900 dark:text-white focus:ring-2 focus:ring-primary focus:border-primary transition-colors">
+                    </div>
+
+                    <!-- Message -->
+                    <div class="space-y-2">
+                        <label for="message" class="block text-sm font-bold text-slate-700 dark:text-slate-300">Message
+                            *</label>
+                        <textarea id="message" name="message" rows="5" required
+                            placeholder="Tell us more about your travel plans..."
+                            class="w-full px-4 py-3 rounded-xl border border-slate-200 dark:border-slate-600 bg-slate-50 dark:bg-slate-900 text-slate-900 dark:text-white focus:ring-2 focus:ring-primary focus:border-primary transition-colors resize-y"></textarea>
+                    </div>
+
+                    <!-- Submit Button -->
+                    <button type="submit"
+                        class="bg-primary text-white font-bold py-4 px-8 rounded-xl hover:bg-primary-dark transition-colors shadow-md flex items-center gap-2">
+                        <span class="material-symbols-outlined">send</span> Send Message
+                    </button>
+                    <p class="text-xs text-slate-500 dark:text-slate-400 mt-4">* All fields are required to submit.</p>
+                </form>
+            </div>
+
+            <!-- RIGHT: Contact Info Cards -->
+            <div class="lg:col-span-1 space-y-6">
+                <!-- Card 1: Contact Details -->
+                <div
+                    class="bg-white dark:bg-slate-800 rounded-2xl shadow-sm border border-slate-200 dark:border-slate-700 p-8">
+                    <h3 class="text-xl font-bold text-slate-900 dark:text-white mb-6">Contact Details</h3>
+                    <ul class="space-y-6">
+                        <li class="flex items-start gap-4">
+                            <div
+                                class="size-10 rounded-full bg-primary/10 flex items-center justify-center text-primary shrink-0 mt-1">
+                                <span class="material-symbols-outlined">location_on</span>
+                            </div>
+                            <div>
+                                <h4 class="font-bold text-slate-900 dark:text-white text-sm mb-1">Headquarters</h4>
+                                <p class="text-slate-600 dark:text-slate-400 text-sm leading-relaxed">
+                                    1-2-1 Marunouchi, Chiyoda-ku<br>Tokyo 100-0005, Japan
+                                </p>
+                            </div>
+                        </li>
+                        <li class="flex items-start gap-4">
+                            <div
+                                class="size-10 rounded-full bg-primary/10 flex items-center justify-center text-primary shrink-0 mt-1">
+                                <span class="material-symbols-outlined">call</span>
+                            </div>
+                            <div>
+                                <h4 class="font-bold text-slate-900 dark:text-white text-sm mb-1">Phone</h4>
+                                <p class="text-slate-600 dark:text-slate-400 text-sm leading-relaxed">
+                                    +81 3-1234-5678
+                                </p>
+                            </div>
+                        </li>
+                        <li class="flex items-start gap-4">
+                            <div
+                                class="size-10 rounded-full bg-primary/10 flex items-center justify-center text-primary shrink-0 mt-1">
+                                <span class="material-symbols-outlined">mail</span>
+                            </div>
+                            <div>
+                                <h4 class="font-bold text-slate-900 dark:text-white text-sm mb-1">Email</h4>
+                                <p class="text-slate-600 dark:text-slate-400 text-sm leading-relaxed">
+                                    hello@fujisantravel.jp
+                                </p>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+
+                <!-- Card 2: Live Chat -->
+                <div
+                    class="bg-gradient-to-br from-primary to-brand-blue rounded-2xl shadow-md p-8 text-white relative overflow-hidden">
+                    <div class="absolute -right-4 -top-4 opacity-10">
+                        <span class="material-symbols-outlined text-[10rem]">forum</span>
+                    </div>
+                    <div class="relative z-10">
+                        <h3 class="text-xl font-bold mb-3">Live Chat</h3>
+                        <p class="text-white/90 text-sm leading-relaxed mb-6">
+                            Our support agents are online Mon–Fri, 9am – 6pm JST to assist you in real-time.
+                        </p>
+                        <button
+                            class="bg-white text-primary font-bold px-6 py-3 rounded-lg flex items-center gap-2 hover:bg-slate-50 transition-colors w-full justify-center shadow-sm">
+                            <span class="material-symbols-outlined text-sm">chat_bubble</span> Start Chat
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- FAQ SECTION with Alpine Accordion -->
+        <section class="mt-24 mb-10 max-w-3xl mx-auto" x-data="{ activeAccordion: null }">
+            <div class="text-center mb-10">
+                <h2 class="text-3xl font-bold text-slate-900 dark:text-white mb-4">Frequently Asked Questions</h2>
+                <p class="text-slate-600 dark:text-slate-400">
+                    Find quick answers to the most common inquiries about our tours and services.
+                </p>
+            </div>
+
+            <div class="space-y-4">
+                <!-- FAQ 1 -->
+                <div
+                    class="bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 rounded-xl overflow-hidden transition-all shadow-sm">
+                    <button @click="activeAccordion = activeAccordion === 1 ? null : 1"
+                        class="w-full flex items-center justify-between p-6 text-left focus:outline-none">
+                        <span class="font-bold text-slate-900 dark:text-white text-lg">1. How do I book a travel
+                            package?</span>
+                        <span class="material-symbols-outlined text-primary transition-transform duration-300"
+                            :class="activeAccordion === 1 ? 'rotate-180' : ''">expand_more</span>
+                    </button>
+                    <div x-show="activeAccordion === 1" x-collapse x-cloak>
+                        <div
+                            class="p-6 pt-0 text-slate-600 dark:text-slate-400 leading-relaxed border-t border-slate-100 dark:border-slate-700 mt-2">
+                            You can easily book a travel package by clicking the "View Details" or "Book Experience"
+                            buttons on our Packages page, filling out your preferred dates and traveler details, and
+                            submitting the request. A specialized agent will contact you within 24 hours to finalize.
+                        </div>
+                    </div>
+                </div>
+
+                <!-- FAQ 2 -->
+                <div
+                    class="bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 rounded-xl overflow-hidden transition-all shadow-sm">
+                    <button @click="activeAccordion = activeAccordion === 2 ? null : 2"
+                        class="w-full flex items-center justify-between p-6 text-left focus:outline-none">
+                        <span class="font-bold text-slate-900 dark:text-white text-lg">2. What is your refund
+                            policy?</span>
+                        <span class="material-symbols-outlined text-primary transition-transform duration-300"
+                            :class="activeAccordion === 2 ? 'rotate-180' : ''">expand_more</span>
+                    </button>
+                    <div x-show="activeAccordion === 2" x-collapse x-cloak>
+                        <div
+                            class="p-6 pt-0 text-slate-600 dark:text-slate-400 leading-relaxed border-t border-slate-100 dark:border-slate-700 mt-2">
+                            We offer a full refund for cancellations up to 30 days before the trip departure date.
+                            Cancellations made within 30 days are subject to a cancellation fee based on the proximity
+                            to the departure date.
+                        </div>
+                    </div>
+                </div>
+
+                <!-- FAQ 3 -->
+                <div
+                    class="bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 rounded-xl overflow-hidden transition-all shadow-sm">
+                    <button @click="activeAccordion = activeAccordion === 3 ? null : 3"
+                        class="w-full flex items-center justify-between p-6 text-left focus:outline-none">
+                        <span class="font-bold text-slate-900 dark:text-white text-lg">3. Do you offer custom private
+                            tours?</span>
+                        <span class="material-symbols-outlined text-primary transition-transform duration-300"
+                            :class="activeAccordion === 3 ? 'rotate-180' : ''">expand_more</span>
+                    </button>
+                    <div x-show="activeAccordion === 3" x-collapse x-cloak>
+                        <div
+                            class="p-6 pt-0 text-slate-600 dark:text-slate-400 leading-relaxed border-t border-slate-100 dark:border-slate-700 mt-2">
+                            Yes, deeply customized and personalized journeys are our specialty! If you can't find a
+                            package that fits exactly, reach out through this contact form, and we will tailor-make a
+                            unique itinerary perfectly aligned with your desires.
+                        </div>
+                    </div>
+                </div>
+
+                <!-- FAQ 4 -->
+                <div
+                    class="bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 rounded-xl overflow-hidden transition-all shadow-sm">
+                    <button @click="activeAccordion = activeAccordion === 4 ? null : 4"
+                        class="w-full flex items-center justify-between p-6 text-left focus:outline-none">
+                        <span class="font-bold text-slate-900 dark:text-white text-lg">4. Is travel insurance included
+                            in the price?</span>
+                        <span class="material-symbols-outlined text-primary transition-transform duration-300"
+                            :class="activeAccordion === 4 ? 'rotate-180' : ''">expand_more</span>
+                    </button>
+                    <div x-show="activeAccordion === 4" x-collapse x-cloak>
+                        <div
+                            class="p-6 pt-0 text-slate-600 dark:text-slate-400 leading-relaxed border-t border-slate-100 dark:border-slate-700 mt-2">
+                            Standard packages do not automatically include comprehensive travel insurance. We highly
+                            recommend purchasing comprehensive travel insurance covering medical, delays, and
+                            cancellation prior to your arrival.
+                        </div>
+                    </div>
+                </div>
+
+                <!-- FAQ 5 -->
+                <div
+                    class="bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 rounded-xl overflow-hidden transition-all shadow-sm">
+                    <button @click="activeAccordion = activeAccordion === 5 ? null : 5"
+                        class="w-full flex items-center justify-between p-6 text-left focus:outline-none">
+                        <span class="font-bold text-slate-900 dark:text-white text-lg">5. Can you help with Japan Rail
+                            Pass (JR Pass)?</span>
+                        <span class="material-symbols-outlined text-primary transition-transform duration-300"
+                            :class="activeAccordion === 5 ? 'rotate-180' : ''">expand_more</span>
+                    </button>
+                    <div x-show="activeAccordion === 5" x-collapse x-cloak>
+                        <div
+                            class="p-6 pt-0 text-slate-600 dark:text-slate-400 leading-relaxed border-t border-slate-100 dark:border-slate-700 mt-2">
+                            Absolutely. Depending on your itinerary, we can calculate if a JR Pass will be
+                            cost-effective for you, and we can pre-purchase and send the exchange vouchers to you before
+                            your departure.
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+</div>
+{% endblock %}

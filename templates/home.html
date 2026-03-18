@@ -1,0 +1,377 @@
+{% extends 'base.html' %}
+{% load static %}
+{% load markdown_extras %}
+
+{% block title %}Home{% endblock %}
+
+{% block content %}
+<!-- Hero Static Banner -->
+<section class="relative w-full min-h-[100vh] lg:h-[90vh] lg:min-h-[700px] overflow-hidden flex justify-center">
+    <div class="absolute inset-0 bg-black/40 z-10"></div>
+    <img alt="Japanese Nature Landscape" class="absolute inset-0 w-full h-full object-cover"
+        src="https://images.unsplash.com/photo-1493976040374-85c8e12f0c0e?q=80&w=2070&auto=format&fit=crop" />
+    <div
+        class="mt-10 relative z-20 max-w-[1200px] mx-auto px-6 h-full flex flex-col justify-center items-center w-full py-24 lg:pt-16 lg:pb-32">
+        <div class="max-w-3xl space-y-5 text-center mt-auto lg:mt-0 reveal">
+            <h2 class="text-2xl md:text-3xl font-semibold text-white tracking-wide">
+                <span class="text-primary brightness-125">Discover</span> Japan
+            </h2>
+            <h1 class="text-4xl md:text-6xl font-bold text-white leading-tight">
+                Travel <span class="text-primary brightness-125">Beyond
+                    Expectations</span>
+            </h1>
+            <p class="text-base md:text-lg text-slate-100 max-w-2xl mx-auto leading-relaxed font-medium">
+                Explore unforgettable journeys across Tokyo, Kyoto, Osaka, and beyond
+                with expertly curated travel experiences.
+            </p>
+            <div class="flex flex-wrap justify-center gap-4 pt-6">
+                <a href="{% url 'packages' %}"
+                    class="bg-primary text-white px-6 py-3 rounded-2xl font-semibold hover:-translate-y-1 hover:bg-primary-dark transition-all shadow-lg text-base">
+                    Explore Packages
+                </a>
+                <a href="{% url 'contact' %}"
+                    class="bg-white/20 backdrop-blur-md text-white border border-white/30 px-6 py-3 rounded-2xl font-semibold hover:bg-white/30 transition-all shadow-lg text-base">
+                    Contact a Travel Expert
+                </a>
+            </div>
+        </div>
+
+        <!-- Stats Section (Glassmorphism) -->
+        <div class="relative mt-12 w-full max-w-[900px] lg:px-6 z-30 reveal" style="transition-delay: 200ms">
+            <div class="grid grid-cols-2 lg:grid-cols-4 gap-4">
+                <div
+                    class="bg-white/5 backdrop-blur-2xl border border-white/10 rounded-2xl p-6 text-center text-white shadow-2xl">
+                    <h3 class="text-3xl font-bold mb-1 tracking-tight">80+</h3>
+                    <p class="text-sm font-medium text-slate-300">Destinations</p>
+                </div>
+                <div
+                    class="bg-white/5 backdrop-blur-2xl border border-white/10 rounded-2xl p-6 text-center text-white shadow-2xl">
+                    <h3 class="text-3xl font-bold mb-1 tracking-tight">150K+</h3>
+                    <p class="text-sm font-medium text-slate-300">Trips Planned</p>
+                </div>
+                <div
+                    class="bg-white/5 backdrop-blur-2xl border border-white/10 rounded-2xl p-6 text-center text-white shadow-2xl">
+                    <h3 class="text-3xl font-bold mb-1 tracking-tight">100K+</h3>
+                    <p class="text-sm font-medium text-slate-300">Happy Travelers</p>
+                </div>
+                <div
+                    class="bg-white/5 backdrop-blur-2xl border border-white/10 rounded-2xl p-6 text-center text-white shadow-2xl flex flex-col items-center justify-center">
+                    <div class="flex items-center gap-2 mb-1">
+                        <span class="material-symbols-outlined text-2xl font-bold opacity-90 text-[#b5d69e]">star</span>
+                        <h3 class="text-3xl font-bold tracking-tight">4.9</h3>
+                    </div>
+                    <p class="text-sm font-medium text-slate-300">Average Rating</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Core Values Section -->
+<section class="py-24 bg-white dark:bg-background-dark">
+    <div class="max-w-[1200px] mx-auto px-6">
+        <div class="grid lg:grid-cols-4 gap-12">
+            <div class="lg:col-span-1 reveal">
+                <h2 class="text-3xl font-bold mb-4">Why Fujisan Travel?</h2>
+                <p class="text-slate-500 dark:text-slate-400">We don't just book trips; we craft lifelong memories
+                    through authentic immersion and impeccable service.</p>
+            </div>
+            <div class="lg:col-span-3 grid md:grid-cols-2 lg:grid-cols-4 gap-6">
+                <!-- Value 1 -->
+                <div class="p-6 rounded-2xl bg-accent-soft dark:bg-slate-900 border border-primary/10 hover-card reveal"
+                    style="transition-delay: 100ms">
+                    <span class="material-symbols-outlined text-primary text-4xl mb-6">workspace_premium</span>
+                    <h3 class="text-lg font-bold mb-2">Authentic Experiences</h3>
+                    <p class="text-sm text-slate-600 dark:text-slate-400 leading-relaxed">Deep cultural immersion not
+                        available to the general public.</p>
+                </div>
+                <!-- Value 2 -->
+                <div class="p-6 rounded-2xl bg-slate-50 dark:bg-slate-900 border border-slate-100 dark:border-slate-800 hover-card reveal"
+                    style="transition-delay: 200ms">
+                    <span class="material-symbols-outlined text-primary text-4xl mb-6">support_agent</span>
+                    <h3 class="text-lg font-bold mb-2">Expert Local Guides</h3>
+                    <p class="text-sm text-slate-600 dark:text-slate-400 leading-relaxed">Passionate English-speaking
+                        locals to show you hidden gems.</p>
+                </div>
+                <!-- Value 3 -->
+                <div class="p-6 rounded-2xl bg-slate-50 dark:bg-slate-900 border border-slate-100 dark:border-slate-800 hover-card reveal"
+                    style="transition-delay: 300ms">
+                    <span class="material-symbols-outlined text-primary text-4xl mb-6">flight_takeoff</span>
+                    <h3 class="text-lg font-bold mb-2">Hassle-Free Travel</h3>
+                    <p class="text-sm text-slate-600 dark:text-slate-400 leading-relaxed">We handle all logistics:
+                        trains, hotels, tickets, and transfers.</p>
+                </div>
+                <!-- Value 4 -->
+                <div class="p-6 rounded-2xl bg-slate-50 dark:bg-slate-900 border border-slate-100 dark:border-slate-800 hover-card reveal"
+                    style="transition-delay: 400ms">
+                    <span class="material-symbols-outlined text-primary text-4xl mb-6">payments</span>
+                    <h3 class="text-lg font-bold mb-2">Affordable Packages</h3>
+                    <p class="text-sm text-slate-600 dark:text-slate-400 leading-relaxed">Unbeatable value with
+                        transparent pricing and no hidden fees.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Featured Travel Packages -->
+<section class="py-24 bg-slate-50 dark:bg-slate-900/50">
+    <div class="max-w-[1200px] mx-auto px-6">
+        <div class="flex flex-col md:flex-row md:items-end justify-between mb-12 gap-4">
+            <div class="reveal">
+                <h2 class="text-4xl font-bold mb-4">Featured Packages</h2>
+                <p class="text-slate-500 dark:text-slate-400">Hand-picked itineraries designed by our regional
+                    specialists.</p>
+            </div>
+            <a class="text-primary font-bold flex items-center gap-2 group" href="{% url 'packages' %}">
+                Explore All Packages
+                <span
+                    class="material-symbols-outlined group-hover:translate-x-1 transition-transform">arrow_forward</span>
+            </a>
+        </div>
+        <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+            {% for package in packages %}
+            <div class="group hover-card bg-white dark:bg-background-dark rounded-2xl overflow-hidden shadow-sm border border-slate-100 dark:border-slate-800 transition-all duration-300 flex flex-col h-full reveal"
+                style="transition-delay: calc({{ forloop.counter }} * 100ms)">
+                <div class="relative h-56 overflow-hidden">
+                    {% if package.image %}
+                    <img alt="{{ package.title }}"
+                        class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
+                        src="{{ package.image.url }}" />
+                    {% else %}
+                    <div class="w-full h-full bg-slate-200 dark:bg-slate-800 flex items-center justify-center">
+                        <span class="material-symbols-outlined text-4xl text-slate-400">landscape</span>
+                    </div>
+                    {% endif %}
+                    <div
+                        class="absolute top-4 right-4 bg-white/90 dark:bg-background-dark/90 backdrop-blur-sm px-3 py-1 rounded-full text-xs font-bold shadow-sm">
+                        {{ package.duration }}
+                    </div>
+                </div>
+                <div class="p-6 flex flex-col flex-grow">
+                    <div class="flex items-center gap-2 mb-3 text-primary">
+                        <span class="material-symbols-outlined text-sm">location_on</span>
+                        <span class="text-xs font-bold tracking-widest uppercase">{{ package.destination }}</span>
+                    </div>
+                    <h3 class="text-xl font-bold mb-2 group-hover:text-primary transition-colors">{{ package.title }}
+                    </h3>
+                    <p class="text-slate-500 dark:text-slate-400 text-sm mb-6 line-clamp-2 flex-grow">{{ package.description }}</p>
+                    <div
+                        class="flex items-center justify-between border-t border-slate-50 dark:border-slate-800 pt-6 mt-auto">
+                        <div>
+                            <span class="text-slate-400 text-xs block">Starts from</span>
+                            <span class="text-xl font-bold text-primary">${{ package.price }}</span>
+                        </div>
+                        <a href="{% url 'packages' %}"
+                            class="px-4 py-2 bg-slate-100 dark:bg-slate-800 font-bold rounded-lg group-hover:bg-primary group-hover:text-white transition-all text-sm">
+                            View Details
+                        </a>
+                    </div>
+                </div>
+            </div>
+            {% empty %}
+            <div class="col-span-full text-center py-10 text-slate-500">
+                <p>No travel packages available at the moment. Please check back later!</p>
+            </div>
+            {% endfor %}
+        </div>
+    </div>
+</section>
+
+<!-- About Us Section -->
+<section class="py-24 bg-white dark:bg-background-dark overflow-hidden">
+    <div class="max-w-[1200px] mx-auto px-6">
+        <div class="grid lg:grid-cols-2 gap-16 items-center">
+            <!-- Image Side -->
+            <div class="relative reveal" style="transition-delay: 100ms">
+                <div class="absolute -top-6 -left-6 w-32 h-32 bg-primary/10 rounded-full blur-2xl"></div>
+                <div class="absolute -bottom-6 -right-6 w-32 h-32 bg-secondary/10 rounded-full blur-2xl"></div>
+                <div class="relative rounded-3xl overflow-hidden shadow-2xl aspect-[4/5] lg:aspect-square">
+                    <img alt="Traditional Japan Landscape"
+                        class="w-full h-full object-cover hover:scale-105 transition-transform duration-700"
+                        src="https://images.unsplash.com/photo-1493976040374-85c8e12f0c0e?q=80&w=2070&auto=format&fit=crop" />
+                    <div class="absolute inset-0 bg-gradient-to-t from-black/40 to-transparent"></div>
+                    <div class="absolute bottom-6 left-6 text-white">
+                        <p class="text-sm font-medium opacity-90 mb-1 font-serif italic">"Traditional Elegance"</p>
+                        <p class="font-bold tracking-widest text-xs uppercase">Kyoto, Japan</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Content Side -->
+            <div class="space-y-8 reveal" style="transition-delay: 300ms">
+                <div>
+                    <span class="text-primary font-bold text-sm tracking-widest uppercase mb-4 block">Our Story</span>
+                    <h2 class="text-4xl md:text-5xl font-bold mb-6 leading-tight">Crafting Unforgettable Journeys
+                        Through <span class="text-primary brightness-125">Authentic
+                            Japan</span></h2>
+                    <p class="text-slate-600 dark:text-slate-400 text-lg leading-relaxed">
+                        At Fujisan Travel, we believe travel is more than just seeing new places—it's about feeling the
+                        soul of a culture. Founded by a group of passionate explorers and local experts, our mission is
+                        to provide deep, meaningful connections to Japan's rich heritage and modern wonders.
+                    </p>
+                </div>
+
+                <div class="grid sm:grid-cols-2 gap-6">
+                    <div
+                        class="flex items-start gap-4 p-4 rounded-2xl bg-slate-50 dark:bg-slate-900 border border-slate-100 dark:border-slate-800">
+                        <span
+                            class="material-symbols-outlined text-primary bg-primary/10 p-2 rounded-lg">history_edu</span>
+                        <div>
+                            <h4 class="font-bold text-sm mb-1">Rich Heritage</h4>
+                            <p class="text-xs text-slate-500 dark:text-slate-400">Deep dives into Japan's centuries-old
+                                traditions.</p>
+                        </div>
+                    </div>
+                    <div
+                        class="flex items-start gap-4 p-4 rounded-2xl bg-slate-50 dark:bg-slate-900 border border-slate-100 dark:border-slate-800">
+                        <span
+                            class="material-symbols-outlined text-primary bg-primary/10 p-2 rounded-lg">verified_user</span>
+                        <div>
+                            <h4 class="font-bold text-sm mb-1">Local Trust</h4>
+                            <p class="text-xs text-slate-500 dark:text-slate-400">Trusted by thousands of travelers
+                                worldwide.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="pt-4">
+                    <a href="{% url 'contact' %}"
+                        class="inline-flex items-center gap-3 bg-slate-900 dark:bg-white dark:text-slate-900 text-white px-8 py-4 rounded-2xl font-bold hover:-translate-y-1 transition-all shadow-lg group">
+                        Learn More About Us
+                        <span
+                            class="material-symbols-outlined group-hover:translate-x-1 transition-transform">arrow_forward</span>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Latest Stories -->
+<section class="py-24 bg-white dark:bg-background-dark">
+    <div class="max-w-[1200px] mx-auto px-6">
+        <div class="text-center mb-16 reveal">
+            <h2 class="text-4xl font-bold mb-4">Latest Stories</h2>
+            <p class="text-slate-500 dark:text-slate-400">Expert travel tips, hidden gems, and cultural deep-dives.</p>
+        </div>
+        <div class="grid md:grid-cols-3 gap-8">
+            {% for blog in blogs %}
+            <article class="flex flex-col gap-4 group reveal"
+                style="transition-delay: calc({{ forloop.counter }} * 100ms)">
+                <div class="h-56 rounded-2xl overflow-hidden shadow-md">
+                    {% if blog.featured_image %}
+                    <img alt="{{ blog.title }}"
+                        class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+                        src="{{ blog.featured_image.url }}" />
+                    {% else %}
+                    <div class="w-full h-full bg-slate-200 dark:bg-slate-800 flex items-center justify-center">
+                        <span class="material-symbols-outlined text-4xl text-slate-400">article</span>
+                    </div>
+                    {% endif %}
+                </div>
+                <div class="space-y-2">
+                    <span class="text-primary text-xs font-bold uppercase tracking-widest">{{ blog.created_at|date:"M d, Y" }}</span>
+                    <h3 class="text-xl font-bold group-hover:text-primary cursor-pointer transition-colors">
+                        <a href="{% url 'blog_detail' blog.slug %}">{{ blog.title }}</a>
+                    </h3>
+                    <p class="text-slate-500 dark:text-slate-400 text-sm leading-relaxed line-clamp-2">{{ blog.content|markdown_snippet|truncatewords:20 }}</p>
+                    <a href="{% url 'blog_detail' blog.slug %}"
+                        class="inline-flex items-center gap-1 text-sm font-bold text-primary hover:text-primary-dark mt-2">
+                        Read More <span class="material-symbols-outlined text-sm">arrow_forward</span>
+                    </a>
+                </div>
+            </article>
+            {% empty %}
+            <div class="col-span-full text-center py-10 text-slate-500">
+                <p>No blog posts available at the moment. Please check back later!</p>
+            </div>
+            {% endfor %}
+        </div>
+    </div>
+</section>
+
+<!-- Testimonials Carousel -->
+<section class="py-24 bg-slate-50 dark:bg-slate-900/50 overflow-hidden"
+    x-data="{ activeTestimonial: 0, total: {{ testimonials|length|default:1 }} }">
+    <div class="max-w-[1200px] mx-auto px-6 grid lg:grid-cols-2 gap-16 items-center reveal">
+        <div class="relative">
+            <div class="absolute -top-10 -left-10 w-40 h-40 bg-primary/10 rounded-full blur-3xl"></div>
+            <div class="relative z-10">
+                <span class="text-primary font-bold text-sm tracking-widest uppercase mb-4 block">Testimonials</span>
+                <h2 class="text-4xl font-bold mb-8">What our travelers say about their journey</h2>
+
+                <div class="space-y-8 relative min-h-[250px]">
+                    {% for testimonial in testimonials %}
+                    <div x-show="activeTestimonial === {{ forloop.counter0 }}" x-transition.opacity.duration.500ms
+                        class="bg-white dark:bg-slate-900 p-8 rounded-2xl relative shadow-sm border border-slate-100 dark:border-slate-800 absolute inset-0">
+                        <span
+                            class="material-symbols-outlined text-primary/20 text-6xl absolute top-4 right-8">format_quote</span>
+                        <div class="flex items-center gap-1 mb-4">
+                            {% for i in "12345"|make_list %}
+                            <span
+                                class="material-symbols-outlined text-yellow-400 text-sm fill-1 {% if forloop.counter > testimonial.rating %}opacity-30{% endif %}">star</span>
+                            {% endfor %}
+                        </div>
+                        <p class="text-lg italic text-slate-700 dark:text-slate-300 mb-6 leading-relaxed">
+                            "{{ testimonial.review_text }}"
+                        </p>
+                        <div class="flex items-center gap-4">
+                            <div class="size-12 rounded-full bg-slate-200 overflow-hidden">
+                                {% if testimonial.photo %}
+                                <img alt="{{ testimonial.customer_name }}" class="w-full h-full object-cover"
+                                    src="{{ testimonial.photo.url }}" />
+                                {% else %}
+                                <span
+                                    class="material-symbols-outlined text-2xl m-auto mt-2 text-slate-400">person</span>
+                                {% endif %}
+                            </div>
+                            <div>
+                                <h4 class="font-bold text-sm">{{ testimonial.customer_name }}</h4>
+                            </div>
+                        </div>
+                    </div>
+                    {% empty %}
+                    <div
+                        class="bg-white dark:bg-slate-900 p-8 rounded-2xl relative shadow-sm border border-slate-100 dark:border-slate-800">
+                        <p class="text-lg italic text-slate-700 dark:text-slate-300 leading-relaxed text-center">
+                            Our customers love us! More testimonials coming soon.
+                        </p>
+                    </div>
+                    {% endfor %}
+                </div>
+
+                {% if testimonials %}
+                <div class="flex gap-4 mt-8">
+                    <button @click="activeTestimonial = activeTestimonial === 0 ? total - 1 : activeTestimonial - 1"
+                        class="size-12 rounded-full border border-slate-200 flex items-center justify-center hover:bg-slate-100 dark:hover:bg-slate-800 transition-all">
+                        <span class="material-symbols-outlined">arrow_back</span>
+                    </button>
+                    <button @click="activeTestimonial = activeTestimonial === total - 1 ? 0 : activeTestimonial + 1"
+                        class="size-12 rounded-full border border-slate-200 flex items-center justify-center hover:bg-slate-100 dark:hover:bg-slate-800 transition-all">
+                        <span class="material-symbols-outlined text-primary">arrow_forward</span>
+                    </button>
+                </div>
+                {% endif %}
+            </div>
+        </div>
+
+        <div class="relative h-[500px] rounded-3xl overflow-hidden shadow-2xl">
+            <img alt="Happy Travelers" class="w-full h-full object-cover"
+                src="https://images.unsplash.com/photo-1528605248644-14dd04022da1?q=80&w=2070&auto=format&fit=crop" />
+            <div class="absolute inset-0 bg-gradient-to-t from-primary/60 to-transparent"></div>
+            <div class="absolute bottom-10 left-10 text-white">
+                <div class="flex items-center gap-1 mb-2">
+                    <span class="material-symbols-outlined fill-1 text-yellow-400">star</span>
+                    <span class="material-symbols-outlined fill-1 text-yellow-400">star</span>
+                    <span class="material-symbols-outlined fill-1 text-yellow-400">star</span>
+                    <span class="material-symbols-outlined fill-1 text-yellow-400">star</span>
+                    <span class="material-symbols-outlined fill-1 text-yellow-400">star</span>
+                </div>
+                <p class="font-bold">4.9/5 from 2,000+ Reviews</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+{% endblock %}
